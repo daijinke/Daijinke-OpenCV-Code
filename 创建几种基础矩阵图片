@@ -1,0 +1,19 @@
+#include <opencv2/opencv.hpp>
+
+int main() {
+	cv::Mat p1(512, 512, CV_8UC1, cv::Scalar(0));
+	cv::Mat p2(512, 512, CV_8UC3, cv::Scalar(0, 128, 255));  // (Blue, Green, Red)
+	cv::Mat p3(512, 512, CV_8UC1, cv::Scalar(0));
+	cv::Mat p4(512, 512, CV_8UC3, cv::Scalar(0, 0, 0));
+	
+	cv::randu(p3, cv::Scalar::all(0), cv::Scalar::all(255));
+	cv::randu(p4, cv::Scalar::all(0), cv::Scalar::all(255));
+
+	cv::imshow("Single channel assignment matrix", p1);
+	cv::imshow("Three channel assignment matrix", p2);
+	cv::imshow("Single channel random noise", p3);
+	cv::imshow("Three channel random noise", p4);
+
+	cv::waitKey(0);
+	return 0;
+}
